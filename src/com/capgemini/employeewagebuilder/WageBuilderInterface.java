@@ -1,6 +1,8 @@
 package com.capgemini.employeewagebuilder;
 
 public interface WageBuilderInterface {
+	public void getTotalWageOfAll();
+
 	public void wageComputation();
 
 	public int wageComputation(CompanyEmployeeWage CompanyEmployeeWage);

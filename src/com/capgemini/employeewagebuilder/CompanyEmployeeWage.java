@@ -17,6 +17,11 @@ public class CompanyEmployeeWage {
 		this.ratePerHr = ratePerHr;
 	}
 
+	public String getCompanyName() {
+		return (compnyName);
+
+	}
+
 	public void setTotalEmpWage(int totalEmpWage) {
 		this.totalEmpWage = totalEmpWage;
 

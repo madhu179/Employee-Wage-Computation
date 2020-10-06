@@ -19,6 +19,13 @@ public class EmployeeWageBuilder implements WageBuilderInterface {
 		companyCount += 1;
 	}
 
+	public void getTotalWageOfAll() {
+		for (int i = 0; i < companyCount; i++) {
+			System.out.println("Comapany Name : " + EmployeeWageList.get(i).getCompanyName()
+					+ ", Total Employee Wage : " + EmployeeWageList.get(i).getTotalEmpWage());
+		}
+	}
+
 	public void wageComputation() {
 		for (int i = 0; i < companyCount; i++) {
 			EmployeeWageList.get(i).setTotalEmpWage(this.wageComputation(EmployeeWageList.get(i)));
@@ -57,8 +64,6 @@ public class EmployeeWageBuilder implements WageBuilderInterface {
 		}
 		System.out.println("Total Hours : " + totalHrs);
 		System.out.println("Total Days : " + days);
-		System.out.println(
-				"Total Employee wage for the Comapany " + CompanyEmployeeWage.compnyName + " is : " + totalEmpWage);
 		return totalEmpWage;
 	}
 
@@ -67,5 +72,6 @@ public class EmployeeWageBuilder implements WageBuilderInterface {
 		wageBuilderObject.addCompanyEmployeeWage("Capgemini", 20, 100, 20);
 		wageBuilderObject.addCompanyEmployeeWage("IBM", 18, 110, 25);
 		wageBuilderObject.wageComputation();
+		wageBuilderObject.getTotalWageOfAll();
 	}
 }
