@@ -6,10 +6,10 @@ public class EmployeeWageBuilder {
 	public static final int IS_PART_TIME = 2;
 	public static final int noOfWorkDays = 20;
 	public static final int maxWorkHrs = 100;
+	public static final int RATE_PER_HR = 20;
 
-	public static void main(String[] args) {
+	public static void wageComputation() {
 
-		final int RATE_PER_HR = 20;
 		int noOfHrs = 0;
 		int wage = 0;
 		int totalEmpWage = 0;
@@ -38,6 +38,11 @@ public class EmployeeWageBuilder {
 		System.out.println("Total Hours : " + totalHrs);
 		System.out.println("Total Days : " + days);
 		System.out.println("Total Employee wage is : " + totalEmpWage);
+	}
+
+	public static void main(String[] args) {
+
+		wageComputation();
 	}
 
 }
