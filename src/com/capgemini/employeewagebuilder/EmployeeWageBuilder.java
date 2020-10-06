@@ -5,11 +5,24 @@ public class EmployeeWageBuilder {
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
 
-	public static void wageComputation(String compnyName, int noOfWorkDays, int maxWorkHrs, int ratePerHr) {
+	private final String compnyName;
+	private final int noOfWorkDays;
+	private final int maxWorkHrs;
+	private final int ratePerHr;
+	private int totalEmpWage;
+
+	public EmployeeWageBuilder(String compnyName, int noOfWorkDays, int maxWorkHrs, int ratePerHr) {
+		this.compnyName = compnyName;
+		this.noOfWorkDays = noOfWorkDays;
+		this.maxWorkHrs = maxWorkHrs;
+		this.ratePerHr = ratePerHr;
+	}
+
+	public void wageComputation() {
 
 		int noOfHrs = 0;
 		int wage = 0;
-		int totalEmpWage = 0;
+		totalEmpWage = 0;
 		int totalHrs = 0;
 		int days = 0;
 		while (days < noOfWorkDays && totalHrs <= maxWorkHrs) {
@@ -38,9 +51,10 @@ public class EmployeeWageBuilder {
 	}
 
 	public static void main(String[] args) {
-
-		wageComputation("Capgemini", 20, 100, 20);
-		wageComputation("IBM", 18, 110, 25);
+		EmployeeWageBuilder capgeminiObject = new EmployeeWageBuilder("Capgemini", 20, 100, 20);
+		EmployeeWageBuilder ibmObject = new EmployeeWageBuilder("IBM", 18, 110, 25);
+		capgeminiObject.wageComputation();
+		ibmObject.wageComputation();
 	}
 
 }
