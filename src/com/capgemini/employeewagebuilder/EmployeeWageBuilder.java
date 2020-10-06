@@ -4,8 +4,9 @@ import java.util.*;
 
 public class EmployeeWageBuilder implements WageBuilderInterface {
 
-	private int companyCount = 0;
+	private static int companyCount = 0;
 	private static ArrayList<CompanyEmployeeWage> EmployeeWageList;
+	private static HashMap<Integer, Integer> dailyWage = new HashMap<>();
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
 
@@ -21,6 +22,8 @@ public class EmployeeWageBuilder implements WageBuilderInterface {
 	public void wageComputation() {
 		for (int i = 0; i < companyCount; i++) {
 			EmployeeWageList.get(i).setTotalEmpWage(this.wageComputation(EmployeeWageList.get(i)));
+			EmployeeWageList.get(i).setDailyEmpWage(dailyWage);
+			dailyWage.clear();
 		}
 	}
 
@@ -48,8 +51,9 @@ public class EmployeeWageBuilder implements WageBuilderInterface {
 			totalHrs = totalHrs + noOfHrs;
 			days = days + 1;
 			wage = noOfHrs * CompanyEmployeeWage.ratePerHr;
+			dailyWage.put(days, wage);
 			totalEmpWage = totalEmpWage + wage;
-			System.out.println("Employee wage is : " + wage);
+			System.out.println("Employee wage on day " + days + " is : " + wage);
 		}
 		System.out.println("Total Hours : " + totalHrs);
 		System.out.println("Total Days : " + days);
