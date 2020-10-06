@@ -1,6 +1,6 @@
 package com.capgemini.employeewagebuilder;
 
-public class EmployeeWageBuilder {
+public class EmployeeWageBuilder implements WageBuilderInterface {
 
 	private int companyCount = 0;
 	private CompanyEmployeeWage[] EmployeeWageArray;
