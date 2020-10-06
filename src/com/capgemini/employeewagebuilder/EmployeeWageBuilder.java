@@ -5,6 +5,7 @@ public class EmployeeWageBuilder {
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
 	public static final int noOfWorkDays = 20;
+	public static final int maxWorkHrs = 100;
 
 	public static void main(String[] args) {
 
@@ -12,8 +13,10 @@ public class EmployeeWageBuilder {
 		int noOfHrs = 0;
 		int wage = 0;
 		int totalEmpWage = 0;
+		int totalHrs = 0;
+		int days = 0;
+		while (days < noOfWorkDays && totalHrs <= maxWorkHrs) {
 
-		for (int d = 0; d < noOfWorkDays; d++) {
 			double employeeCheck = Math.floor(Math.random() * 10) % 3;
 			switch ((int) employeeCheck) {
 			case IS_FULL_TIME:
@@ -26,10 +29,14 @@ public class EmployeeWageBuilder {
 				noOfHrs = 0;
 				break;
 			}
+			totalHrs = totalHrs + noOfHrs;
+			days = days + 1;
 			wage = noOfHrs * RATE_PER_HR;
 			totalEmpWage = totalEmpWage + wage;
 			System.out.println("Employee wage is : " + wage);
 		}
+		System.out.println("Total Hours : " + totalHrs);
+		System.out.println("Total Days : " + days);
 		System.out.println("Total Employee wage is : " + totalEmpWage);
 	}
 
