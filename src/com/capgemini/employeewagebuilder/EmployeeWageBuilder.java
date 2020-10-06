@@ -4,11 +4,8 @@ public class EmployeeWageBuilder {
 
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
-	public static final int noOfWorkDays = 20;
-	public static final int maxWorkHrs = 100;
-	public static final int RATE_PER_HR = 20;
 
-	public static void wageComputation() {
+	public static void wageComputation(String compnyName, int noOfWorkDays, int maxWorkHrs, int ratePerHr) {
 
 		int noOfHrs = 0;
 		int wage = 0;
@@ -31,18 +28,19 @@ public class EmployeeWageBuilder {
 			}
 			totalHrs = totalHrs + noOfHrs;
 			days = days + 1;
-			wage = noOfHrs * RATE_PER_HR;
+			wage = noOfHrs * ratePerHr;
 			totalEmpWage = totalEmpWage + wage;
 			System.out.println("Employee wage is : " + wage);
 		}
 		System.out.println("Total Hours : " + totalHrs);
 		System.out.println("Total Days : " + days);
-		System.out.println("Total Employee wage is : " + totalEmpWage);
+		System.out.println("Total Employee wage for the Comapany " + compnyName + " is : " + totalEmpWage);
 	}
 
 	public static void main(String[] args) {
 
-		wageComputation();
+		wageComputation("Capgemini", 20, 100, 20);
+		wageComputation("IBM", 18, 110, 25);
 	}
 
 }
