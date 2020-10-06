@@ -19,4 +19,9 @@ public class CompanyEmployeeWage {
 
 	}
 
+	public int getTotalEmpWage() {
+		return (totalEmpWage);
+
+	}
+
 }

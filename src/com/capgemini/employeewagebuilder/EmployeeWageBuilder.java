@@ -1,25 +1,26 @@
 package com.capgemini.employeewagebuilder;
 
+import java.util.*;
+
 public class EmployeeWageBuilder implements WageBuilderInterface {
 
 	private int companyCount = 0;
-	private CompanyEmployeeWage[] EmployeeWageArray;
-
+	private static ArrayList<CompanyEmployeeWage> EmployeeWageList;
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
 
 	public EmployeeWageBuilder() {
-		EmployeeWageArray = new CompanyEmployeeWage[10];
+		EmployeeWageList = new ArrayList<CompanyEmployeeWage>();
 	}
 
 	public void addCompanyEmployeeWage(String compnyName, int noOfWorkDays, int maxWorkHrs, int ratePerHr) {
-		EmployeeWageArray[companyCount] = new CompanyEmployeeWage(compnyName, noOfWorkDays, maxWorkHrs, ratePerHr);
+		EmployeeWageList.add(new CompanyEmployeeWage(compnyName, noOfWorkDays, maxWorkHrs, ratePerHr));
 		companyCount += 1;
 	}
 
 	public void wageComputation() {
 		for (int i = 0; i < companyCount; i++) {
-			EmployeeWageArray[i].setTotalEmpWage(this.wageComputation(EmployeeWageArray[i]));
+			EmployeeWageList.get(i).setTotalEmpWage(this.wageComputation(EmployeeWageList.get(i)));
 		}
 	}
 
